@@ -135,6 +135,7 @@ Username: ganetigo-bot
 Password: <app-token>
 Logged in successfully!
 ```
+![Login success.](<Screenshot 2026-02-06 223732.png>)
 
 On success, the token is saved locally.
 
