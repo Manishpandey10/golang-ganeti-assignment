@@ -1,0 +1,107 @@
+❯ ./ganetigo instance list
+
+NAME      STATUS      NODE   MEMORY  VCPUS
+bart      ADMIN_down  node2  128M    1
+burns     ADMIN_down  node3  128M    1
+homer     ADMIN_down  node1  128M    1
+lisa      ADMIN_down  node4  128M    1
+marge     ADMIN_down  node5  128M    1
+milhouse  ADMIN_down  node1  128M    1
+moe       ADMIN_down  node5  128M    1
+smithers  ADMIN_down  node4  128M    1
+❯ ./ganetigo instance start bart
+
+Started instance bart (Job ID: 14)
+❯ ./ganetigo instance list
+
+NAME      STATUS      NODE   MEMORY  VCPUS
+bart      running     node2  128M    1
+burns     ADMIN_down  node3  128M    1
+homer     ADMIN_down  node1  128M    1
+lisa      ADMIN_down  node4  128M    1
+marge     ADMIN_down  node5  128M    1
+milhouse  ADMIN_down  node1  128M    1
+moe       ADMIN_down  node5  128M    1
+smithers  ADMIN_down  node4  128M    1
+❯ ./ganetigo instance stop bart
+
+Stopped instance bart (Job ID: 15)
+❯ ./ganetigo instance list
+
+NAME      STATUS      NODE   MEMORY  VCPUS
+bart      ADMIN_down  node2  128M    1
+burns     ADMIN_down  node3  128M    1
+homer     ADMIN_down  node1  128M    1
+lisa      ADMIN_down  node4  128M    1
+marge     ADMIN_down  node5  128M    1
+milhouse  ADMIN_down  node1  128M    1
+moe       ADMIN_down  node5  128M    1
+smithers  ADMIN_down  node4  128M    1
+❯ ./ganetigo instance delete bart
+
+Are you sure you want to delete instance bart? [y/N]: y
+Deleted instance bart (Job ID: 16)
+❯ ./ganetigo instance list
+
+NAME      STATUS      NODE   MEMORY  VCPUS
+burns     ADMIN_down  node3  128M    1
+homer     ADMIN_down  node1  128M    1
+lisa      ADMIN_down  node4  128M    1
+marge     ADMIN_down  node5  128M    1
+milhouse  ADMIN_down  node1  128M    1
+moe       ADMIN_down  node5  128M    1
+smithers  ADMIN_down  node4  128M    1
+❯ ./ganetigo instance create bart node2 --memory 128 --vcpus 1
+
+Created instance bart on node2 (Job ID: 17)
+❯ ./ganetigo instance list
+
+NAME      STATUS      NODE   MEMORY  VCPUS
+bart      ADMIN_down  node2  128M    1
+burns     ADMIN_down  node3  128M    1
+homer     ADMIN_down  node1  128M    1
+lisa      ADMIN_down  node4  128M    1
+marge     ADMIN_down  node5  128M    1
+milhouse  ADMIN_down  node1  128M    1
+moe       ADMIN_down  node5  128M    1
+smithers  ADMIN_down  node4  128M    1
+❯ ./ganetigo instance start bart
+
+Started instance bart (Job ID: 18)
+❯ ./ganetigo instance list
+
+NAME      STATUS      NODE   MEMORY  VCPUS
+bart      running     node2  128M    1
+burns     ADMIN_down  node3  128M    1
+homer     ADMIN_down  node1  128M    1
+lisa      ADMIN_down  node4  128M    1
+marge     ADMIN_down  node5  128M    1
+milhouse  ADMIN_down  node1  128M    1
+moe       ADMIN_down  node5  128M    1
+smithers  ADMIN_down  node4  128M    1
+❯ ./ganetigo instance stop bart
+
+Stopped instance bart (Job ID: 19)
+
+❯ ./ganetigo node list
+
+NAME   ROLE  OFFLINE  DRAINED
+node1  M     false    false
+node2  C     false    false
+node3  C     false    false
+node4  C     false    false
+node5  C     false    false
+❯ ./ganetigo cluster info
+
+Name:      cluster
+Master:    node1
+UUID:      62f9d4a9-dd93-46ad-a7b9-5e45ff4772ae
+❯ ./ganetigo job info 19
+
+Job ID:   19
+Status:   success
+Priority: 0
+Ops:      1
+Received: 2026-01-31 13:44:36.36579 +0000 UTC
+Started:  2026-01-31 13:44:36.630021 +0000 UTC
+Ended:    2026-01-31 13:44:36.761851 +0000 UTC
